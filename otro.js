@@ -2,7 +2,7 @@ var canvas = document.getElementById('canvas');
 var ctx = canvas.getContext('2d');
 
 function random(min, max) {
-  return Math.floor((fxrand() * (max - min + 1)) + min);
+  return Math.floor((Math.random() * (max - min + 1)) + min);
 }
 
 const inY = canvas.height/8
@@ -42,7 +42,7 @@ const paleta = randomFromList(paletas);
 // const paleta = paleta5
 
 function randomFromList(items){
-    return items[Math.floor(fxrand()*items.length)];
+    return items[Math.floor(Math.random()*items.length)];
     }
 
 f = random(20,40)
@@ -53,14 +53,15 @@ xs = random(100,900)
 ys  = random(50,400)
 tams = random(6,30)
 t = random(0,310)
-fxpreview() 
-
-def = fxrand() 
+generate()
+function generate(){
+  const paleta = randomFromList(paletas);
+def = Math.random() 
 
 createBackground()
 if (def<0.1){
   
-  el = fxrand()
+  el = Math.random()
   if(el<0.6){
     createStarts()
   }else if(el<0.8){
@@ -73,7 +74,7 @@ if (def<0.1){
 
 }else if(def<0.2){
   
-  el = fxrand()
+  el = Math.random()
   if(el<0.6){
     createStarts()
   }else if(el<0.8){
@@ -85,7 +86,7 @@ if (def<0.1){
   createOverlay(paleta[0], 0.9, 3, n, g);//ch
 }else if(def<0.3){
   
-  el = fxrand()
+  el = Math.random()
   if(el<0.6){
     createStarts()
   }else if(el<0.8){
@@ -97,7 +98,7 @@ if (def<0.1){
   createOverlay3(paleta[0], 0.9, 3, n, g);//picuda
 }else if(def<0.7){
 
-  el = fxrand()
+  el = Math.random()
   if(el<0.6){
     createStarts()
   }else if(el<0.8){
@@ -110,7 +111,7 @@ if (def<0.1){
   createOverlay(paleta[0], 0.9, 3, n, g);//ch
 }else{
 
-  el = fxrand()
+  el = Math.random()
   if(el<0.6){
     createStarts()
   }else if(el<0.8){
@@ -124,12 +125,10 @@ if (def<0.1){
 }
 
 
+}
 
-fxpreview()
 
 
-console.log(def);
-console.log(el);
 
 function createBackground() {
   var lg = ctx.createLinearGradient(0, 0, 0, ctx.canvas.height);
@@ -155,7 +154,7 @@ function createStarts(){
     ctx.fillStyle = paleta[1]
     ctx.beginPath();
     p = random(0.3,1.3)
-    ctx.arc(fxrand()*i*200,fxrand()*i*20, p, 0, 2 * Math.PI, true);
+    ctx.arc(Math.random()*i*200,Math.random()*i*20, p, 0, 2 * Math.PI, true);
     ctx.fill()
     ctx.strokeStyle = paleta[1];
     ctx.stroke();
@@ -169,13 +168,13 @@ function createStarts(){
   
     var x,
       height = 0.7 * maxHeight, // define el alto
-      slope = (fxrand() * saw) * 2 - saw;
+      slope = (Math.random() * saw) * 2 - saw;
   
     for (x = 0; x < canvas.width; x++) {
     
       height += slope * 0.25;
       // height += slope * 0.5;
-      slope += (fxrand() * hard) * 2 - hard;
+      slope += (Math.random() * hard) * 2 - hard;
   
       if (slope > saw) {
         slope = saw;
@@ -208,13 +207,13 @@ function createStarts(){
   
     var x,
       height = 0.5 * maxHeight, // define el alto
-      slope = (fxrand() * saw) * 2 - saw;
+      slope = (Math.random() * saw) * 2 - saw;
   
     for (x = 0; x < canvas.width; x++) {
     
       height += slope * 0.25;
       // height += slope * 0.5;
-      slope += (fxrand() * hard) * 2 - hard;
+      slope += (Math.random() * hard) * 2 - hard;
   
       if (slope > saw) {
         slope = saw;
@@ -246,13 +245,13 @@ function createStarts(){
   
     var x,
       height = 0.5 * maxHeight, // define el alto
-      slope = (fxrand() * saw) * 2 - saw;
+      slope = (Math.random() * saw) * 2 - saw;
   
     for (x = 0; x < canvas.width; x++) {
     
       height += slope * 0.65;
       // height += slope * 0.5;
-      slope += (fxrand() * hard) * 2 - hard;
+      slope += (Math.random() * hard) * 2 - hard;
   
       if (slope > saw) {
         slope = saw;
